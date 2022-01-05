@@ -20,11 +20,11 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file docker/ubuntu.Dockerfile --tag lawrenceching/nghttp2-ubuntu:$(date '+%Y-%m-%d')
+      run: docker build . --file docker/ubuntu.Dockerfile --tag lawrenceching/nghttp2:ubuntu-$(date '+%Y-%m-%d')
     - name: Docker Push
       run: |
-        docker push lawrenceching/nghttp2-ubuntu:$(date '+%Y-%m-%d')
-        docker tag lawrenceching/nghttp2-ubuntu:$(date '+%Y-%m-%d') lawrenceching/nghttp2-ubuntu:latest
-        docker tag lawrenceching/nghttp2-ubuntu:latest lawrenceching/h2load-ubuntu:latest
-        docker push lawrenceching/nghttp2-ubuntu:latest
-        docker push lawrenceching/h2load-ubuntu:latest
+        docker push lawrenceching/nghttp2:ubuntu-$(date '+%Y-%m-%d')
+        docker tag lawrenceching/nghttp2:ubuntu-$(date '+%Y-%m-%d') lawrenceching/nghttp2:ubuntu-latest
+        docker tag lawrenceching/nghttp2:ubuntu-latest lawrenceching/h2load:ubuntu-latest
+        docker push lawrenceching/nghttp2:ubuntu-latest
+        docker push lawrenceching/h2load:ubuntu-latest
