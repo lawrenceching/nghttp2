@@ -25,6 +25,6 @@ jobs:
       run: |
         docker push lawrenceching/nghttp2:$(date '+%Y-%m-%d')
         docker tag lawrenceching/nghttp2:$(date '+%Y-%m-%d') lawrenceching/nghttp2:latest
-        docker lawrenceching/nghttp2:latest lawrenceching/h2load:latest
+        docker tag lawrenceching/nghttp2:latest lawrenceching/h2load:latest
         docker push lawrenceching/nghttp2:latest
         docker push lawrenceching/h2load:latest
